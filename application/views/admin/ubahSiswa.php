@@ -2,39 +2,51 @@
 <?php $this->load->view('template-admin/sidebar'); ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+    <?php //var_dump($siswa) 
+    ?>
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Ubah Siswa</h1>
-    <?= form_open('admin/siswa/tambahSiswa') ?>
+    <?= form_open('admin/siswa/ubahSiswa/'.$nis) ?>
     <div class="form-group">
         <label class="form-label">NIS</label>
-        <input type="text" name="nis" class="form-control" disabled value="">
+        <input type="text" name="nis" class="form-control" disabled value="<?= $siswa['nis'] ?>">
         <?= form_error('nis', '<p class="text-danger">', '</p>'); ?>
     </div>
     <div class="form-group">
         <label class="form-label">Nama<sup class="text-danger"><strong>*</strong></sup></label>
-        <input type="text" name="nama" class="form-control">
+        <input type="text" name="nama" class="form-control" value="<?= $siswa['namaSiswa'] ?>">
         <?= form_error('nama', '<p class="text-danger">', '</p>'); ?>
     </div>
     <div class="form-group">
         <label class="form-label">Jenis Kelamin<sup class="text-danger"><strong>*</strong></sup></label>
-        <div class="form-check">
-            <input class="form-check-input" name="jk" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Laki-Laki"> Laki-Laki
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" name="jk" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Perempuan"> Perempuan
-        </div>
+        <?php if ($siswa['jenisKelamin'] == 'Laki-Laki') { ?>
+            <div class="form-check">
+                <input class="form-check-input" name="jk" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Laki-Laki" checked> Laki-Laki
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="jk" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Perempuan"> Perempuan
+            </div>
+        <?php } else {
+        ?>
+            <div class="form-check">
+                <input class="form-check-input" name="jk" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Laki-Laki" > Laki-Laki
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="jk" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Perempuan" checked> Perempuan
+            </div>
+        <?php
+        } ?>
         <?= form_error('jk', '<p class="text-danger">', '</p>'); ?>
     </div>
     <div class="form-group">
         <label class="form-label">Nomor Telpon<sup class="text-danger"><strong>*</strong></sup></label>
-        <input type="text" name="noTelp" class="form-control">
+        <input type="text" name="noTelp" class="form-control" value="<?= $siswa['nomorTelpon'] ?>">
         <?= form_error('noTelp', '<p class="text-danger">', '</p>'); ?>
     </div>
     <div class="form-group">
         <label class="form-label">Kelas<sup class="text-danger"><strong>*</strong></sup></label>
         <select class="form-control" aria-label="Default select example" name="kelas">
-            <option value="">~Kelas</option>
+            <option value="<?= $siswa['kelas'] ?>"><?= $siswa['kelas'] ?></option>
             <option value="X A">X A</option>
             <option value="X B">X B</option>
             <option value="X C">X C</option>
@@ -50,7 +62,7 @@
     <div class="form-group">
         <label class="form-label">Kategori SPP<sup class="text-danger"><strong>*</strong></sup></label>
         <select class="form-control" aria-label="Default select example" name="kategoriSPP">
-            <option value="">~Kategori SPP</option>
+            <option value="<?= $siswa['id_kategori_spp'] ?>"><?= $siswa['kategori_spp'] ?></option>
             <?php foreach ($kategori as $k) : ?>
                 <option value="<?= $k['id_kategori_spp'] ?>"><?= $k['kategori_spp'] ?></option>
             <?php endforeach; ?>

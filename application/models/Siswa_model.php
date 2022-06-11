@@ -18,10 +18,28 @@ class Siswa_model extends CI_Model {
 
     public function getSiswaDetail($nis){
         $this->db->select('*')
-        ->from('siswa')
-        ->where('nis', $nis);
+            ->from('siswa')
+            ->join('kategori_spp', 'kategori_spp.id_kategori_spp = siswa.id_kategori_spp', 'left')
+            ->where('nis', $nis);
         $query = $this->db->get();
-        return $query->result_array();
+        return $query->row_array();
+    }
+
+    public function ubahSiswa($data){
+        $this->db->where('nis', $data['nis']);
+        $dataSiswa = [
+            'namaSiswa' => $data['namaSiswa'],
+            'jenisKelamin' => $data['jenisKelamin'],
+            'nomorTelpon' => $data['nomorTelpon'],
+            'kelas' => $data['kelas'],
+            'id_kategori_spp' => $data['id_kategori_spp'],
+        ];
+        $this->db->update('siswa', $dataSiswa);
+    }
+
+    public function deleteSiswa($nis){
+        $this->db->where('nis', $nis);
+        $this->db->delete('siswa');
     }
 
 }

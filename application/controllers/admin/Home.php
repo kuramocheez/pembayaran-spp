@@ -3,8 +3,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
-
-    
     public function __construct()
     {
         parent::__construct();
@@ -16,7 +14,6 @@ class Home extends CI_Controller {
         if (!$this->session->userdata('id_users')) {
             redirect('admin');
         }else{
-
         $data = [
             'title' => 'Dashboard | Pembayaran SPP',
             'siswa' => $this->Home_model->countSiswa(),

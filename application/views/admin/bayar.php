@@ -4,17 +4,11 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Pembayaran</h1>
-    <?= form_open('admin/pembayaran/bayar') ?>
+    <h1 class="h3 mb-4 text-gray-800">Bayar</h1>
+    <?= form_open('admin/pembayaran') ?>
     <div class="form-group">
-        <label class="form-label">Nama Siswa<sup class="text-danger"><strong>*</strong></sup></label>
-        <input list="listSiswa" name="siswa" id="siswa" class="form-control" value="<?= set_value('siswa') ?>">
-        <datalist id="listSiswa">
-            <?php foreach ($siswa as $s) : ?>
-                <option value="<?= $s['nis'] ?>"><?= $s['namaSiswa'] ?></option>
-            <?php endforeach; ?>
-        </datalist>
-        </select>
+        <label class="form-label">Nama Siswa</label>
+        <input type="text" name="siswa" id="siswa" class="form-control" value="<?= $siswa['siswa'] ?>">
         <?= form_error('siswa', '<p class="text-danger">', '</p>'); ?>
     </div>
     <div class="form-group">
@@ -39,7 +33,6 @@
             <option value="Maret">Maret</option>
             <option value="April">April</option>
             <option value="Mei">Mei</option>
-            <option value="Juni">Juni</option>
             <option value="Juni">Juli</option>
             <option value="Agustus">Agustus</option>
             <option value="September">September</option>
