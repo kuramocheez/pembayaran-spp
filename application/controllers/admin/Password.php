@@ -22,9 +22,14 @@ class Password extends CI_Controller {
             $this->form_validation->set_rules('rePassBaru', 'Re-Password', 'required|matches[passBaru]', ['required' => '%s Tidak Boleh Kosong', 'matches' => '%s Tidak Sama']);
             if ($this->form_validation->run() == TRUE) {
                 $password = password_hash($this->input->post('passBaru'), PASSWORD_DEFAULT);
-                $this->Users_model->password($password);
+                $data = [
+                    'id_users' => $this->session->userdata['id_users'],
+                    'password' => $password
+                ];
+                $this->Users_model->Ubahpassword($data);
                 $this->session->set_flashdata('password', 'Password Berhasil Diubah');
                 redirect('admin/password');
+                // var_dump($data);
             } else {
                 $id = $this->session->userdata('id_users');
                 $user = $this->Users_model->getUser($id);

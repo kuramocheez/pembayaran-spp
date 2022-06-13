@@ -50,7 +50,7 @@
         <?= form_error('bulan', '<p class="text-danger">', '</p>'); ?>
     </div>
     <div class="text-right mb-3">
-        <button class="btn btn-info">Lanjut Pembayaran</button>
+        <button class="btn btn-info"><i class="bi bi-arrow-right-circle"></i> Lanjut Pembayaran</button>
     </div>
     </form>
 </div>

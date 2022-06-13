@@ -21,9 +21,12 @@ class Profile extends CI_Controller {
                 $config['upload_path']          = './assets/user-img/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg';
                 $config['max_size']             = 1000000;
-                $config['max_width']            = 1000000;
-                $config['max_height']           = 1000000;
+                $config['max_width']            = 10000;
+                $config['max_height']           = 10000;
                 $this->upload->initialize($config);
+                // var_dump($this->upload->initialize($config));
+                var_dump($this->upload->do_upload('userfile'));
+                
                 if (!$this->upload->do_upload('userfile')) {
                     $data = [
                         'id_users' => $this->session->userData('id_users'),
@@ -44,7 +47,9 @@ class Profile extends CI_Controller {
                         'foto' => $foto
                     ];
                 }
-            $this->Users_model->profile($data);
+                var_dump($data);
+                
+                $this->Users_model->profile($data);
             $this->session->set_flashdata('profile', 'Profile Berhasil Di Update');
             redirect('admin/profile');
             }else{

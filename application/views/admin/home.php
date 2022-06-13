@@ -8,7 +8,7 @@
     <div class="jumbotron">
         <h1 class="display-4">Sistem Pembayaran SPP</h1>
         <p class="lead">Memudahkan pencatatan Pembayaran SPP</p>
-        <a href="<?= base_url('admin/pembayaran') ?>" class="btn btn-lg btn-primary">Bayar SPP</a>
+        <a href="<?= base_url('admin/pembayaran') ?>" class="btn btn-lg btn-primary"><i class="bi bi-wallet"></i> Bayar SPP</a>
 
     </div>
     <div class="row">

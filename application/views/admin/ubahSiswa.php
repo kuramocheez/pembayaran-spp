@@ -6,7 +6,7 @@
     ?>
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Ubah Siswa</h1>
-    <?= form_open('admin/siswa/ubahSiswa/'.$nis) ?>
+    <?= form_open('admin/siswa/ubahSiswa/' . $nis) ?>
     <div class="form-group">
         <label class="form-label">NIS</label>
         <input type="text" name="nis" class="form-control" disabled value="<?= $siswa['nis'] ?>">
@@ -29,7 +29,7 @@
         <?php } else {
         ?>
             <div class="form-check">
-                <input class="form-check-input" name="jk" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Laki-Laki" > Laki-Laki
+                <input class="form-check-input" name="jk" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Laki-Laki"> Laki-Laki
             </div>
             <div class="form-check">
                 <input class="form-check-input" name="jk" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Perempuan" checked> Perempuan
@@ -70,7 +70,7 @@
         <?= form_error('kategoriSPP', '<p class="text-danger">', '</p>'); ?>
     </div>
     <div class="text-right mb-3">
-        <button class="btn btn-success">Ubah Siswa</button>
+        <button class="btn btn-success"><i class="bi bi-pencil-square"></i> Ubah Siswa</button>
     </div>
     </form>
 </div>

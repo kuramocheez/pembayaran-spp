@@ -25,7 +25,9 @@ class Home extends CI_Controller {
     }
     public function logout()
     {    
-        $this->session->sess_destroy();
+        
+        $this->session->unset_userdata('id_users');
+        // $this->session->sess_destroy();
         redirect('admin');
     }
 }

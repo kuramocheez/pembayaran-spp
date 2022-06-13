@@ -17,9 +17,30 @@ class Siswa extends CI_Controller {
         if (!$this->session->userdata('id_users')) {
             redirect('admin');
         } else {
+            // Get Keywoard
+            if($this->input->post('submit')){
+                $keyword = $this->input->post('keyword');
+                $this->session->set_userdata('keyword', $keyword);
+            }else{
+                $keyword = $this->session->userdata('keyword');
+            }
+            
+            // Confg
+            $config['base_url'] = 'http://localhost/pembayaran-spp/admin/siswa/index';
+            // var_dump($this->Siswa_model->countSiswa($keyword)); die;
+            $config['total_rows'] = $this->Siswa_model->countSiswa($keyword);
+            $config['per_page'] = 5;
+            
+            // Initialize
+            $this->pagination->initialize($config);
+            
+            $start = $this->uri->segment(4);
             $data = [
                 'title' => 'Siswa | Pembayaran SPP',
-                'siswa' => $this->Siswa_model->getSiswa()
+                // 'siswa' => $this->Siswa_model->getSiswa()
+                'siswa' => $this->Siswa_model->getSiswaPage($config['per_page'], $start, $keyword),
+                'start' => $start + 1,
+                'total_rows' => $config['total_rows']
             ];
             $this->load->view('admin/siswa', $data);
         }

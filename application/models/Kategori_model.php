@@ -10,6 +10,22 @@ class Kategori_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function countKategori($keyword)
+    {
+        if ($keyword) {
+            $this->db->like('kategori_spp', $keyword);
+        }
+        $this->db->from('kategori_spp');
+        return $this->db->count_all_results();
+    }
+
+    public function getKategoriSPP($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('kategori_spp', $keyword);
+        }
+        return $this->db->get('kategori_spp', $limit, $start)->result_array();
+    }
 
     public function tambahKategori($data){
         $this->db->insert('kategori_spp', $data);

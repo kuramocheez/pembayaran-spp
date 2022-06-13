@@ -50,12 +50,11 @@ class Users_model extends CI_Model {
         }
         $this->db->update('users', $data);
     }
-    public function password($password){
-        $id = $this->session->userData['id_users'];
-        $this->db->where('id_users', $id);
+    public function Ubahpassword($d){
         $data = [
-            'password' => $password
+            'password' => $d['password']
         ];
+        $this->db->where('id_users', $d['id_users']);
         $this->db->update('users', $data);
     }
 }

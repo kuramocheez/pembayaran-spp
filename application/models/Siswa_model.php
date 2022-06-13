@@ -12,6 +12,24 @@ class Siswa_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function countSiswa($keyword){
+        if ($keyword) {
+            $this->db->like('namaSiswa', $keyword);
+            $this->db->or_like('nis', $keyword);
+        }
+        $this->db->from('siswa');
+        return $this->db->count_all_results();
+    }
+
+    public function getSiswaPage($limit, $start, $keyword = null){
+        if ($keyword){
+            $this->db->like('namaSiswa', $keyword);
+            $this->db->or_like('nis', $keyword);
+        }
+        $this->db->join('kategori_spp', 'kategori_spp.id_kategori_spp = siswa.id_kategori_spp','left');
+        return $this->db->get('siswa', $limit, $start)->result_array();
+    }
+
     public function tambahSiswa($data){
         $this->db->insert('siswa', $data);        
     }
@@ -40,6 +58,11 @@ class Siswa_model extends CI_Model {
     public function deleteSiswa($nis){
         $this->db->where('nis', $nis);
         $this->db->delete('siswa');
+    }
+
+    public function getSiswaPembayaran($nis){
+        $this->db->where('nis', $nis);
+        return $this->db->get('siswa')->num_rows();
     }
 
 }

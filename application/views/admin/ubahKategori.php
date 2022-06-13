@@ -5,7 +5,7 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Ubah Kategori</h1>
-    <?= form_open('admin/kategori/ubahKategori/'.$id) ?>
+    <?= form_open('admin/kategori/ubahKategori/' . $id) ?>
     <div class="form-group">
         <label class="form-label">Kategori<sup class="text-danger"><strong>*</strong></sup></label>
         <input type="text" name="kategori" class="form-control" value="<?= $kategori['kategori_spp'] ?>">
@@ -23,7 +23,7 @@
         <?= form_error('nominal', '<p class="text-danger">', '</p>'); ?>
     </div>
     <div class="text-right mb-3">
-        <button class="btn btn-success">Ubah Kategori</button>
+        <button class="btn btn-success"><i class="bi bi-pencil-square"></i> Ubah Kategori</button>
     </div>
     </form>
 </div>

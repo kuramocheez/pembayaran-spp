@@ -18,17 +18,17 @@
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('admin/home') ?>">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="bi bi-speedometer2"></i>
                 <span>Dashboard</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('admin/pembayaran') ?>">
-                <i class="fas fa-solid fa-money-bill-wave"></i>
+                <i class="bi bi-wallet"></i>
                 <span>Pembayaran SPP</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('admin/riwayatPembayaran') ?>">
-                <i class="fas fa-solid fa-table"></i>
+            <a class="nav-link" href="<?= base_url('admin/pembayaran/riwayatPembayaran') ?>">
+                <i class="bi bi-clock-history"></i>
                 <span>Riwayat Pembayaran SPP</span></a>
         </li>
 
@@ -47,12 +47,12 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('admin/siswa') ?>">
-                    <i class="fas fa-solid fa-users"></i>
+                    <i class="bi bi-people-fill"></i>
                     <span>Siswa</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('admin/kategori') ?>">
-                    <i class="fas fa-solid fa-list"></i>
+                    <i class="bi bi-list-ul"></i>
                     <span>Kategori SPP</span></a>
             </li>
             <!-- Divider -->

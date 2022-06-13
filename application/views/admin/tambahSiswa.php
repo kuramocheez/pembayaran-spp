@@ -58,7 +58,7 @@
         <?= form_error('kategoriSPP', '<p class="text-danger">', '</p>'); ?>
     </div>
     <div class="text-right mb-3">
-        <button class="btn btn-success">Tambah Siswa</button>
+        <button class="btn btn-success"><i class="bi bi-person-plus-fill"></i> Tambah Siswa</button>
     </div>
     </form>
 </div>

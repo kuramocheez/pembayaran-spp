@@ -19,13 +19,13 @@
             </div>
             <input type="text" class="form-control" id="inlineFormInputGroupUsername" name="nominal" value="<?= set_value('nominal') ?>">
         </div>
-    <!-- <input type="text" name="nominal" class="form-control" value="<?= set_value('nominal') ?>"> -->
-    <?= form_error('nominal', '<p class="text-danger">', '</p>'); ?>
-</div>
-<div class="text-right mb-3">
-    <button class="btn btn-success">Tambah Kategori</button>
-</div>
-</form>
+        <!-- <input type="text" name="nominal" class="form-control" value="<?= set_value('nominal') ?>"> -->
+        <?= form_error('nominal', '<p class="text-danger">', '</p>'); ?>
+    </div>
+    <div class="text-right mb-3">
+        <button class="btn btn-success"><i class="bi bi-plus-square"></i> Tambah Kategori</button>
+    </div>
+    </form>
 </div>
 <!-- /.container-fluid -->
 <!-- End of Main Content -->
